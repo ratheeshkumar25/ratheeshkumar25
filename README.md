@@ -1,16 +1,12 @@
-Hi there! I'm Ratheesh , a back-end developer passionate about Go, Postgres, Docker, and building web applications.
+# Hi there! 👋
 
-Currently focused on: Mastering Go and its ecosystem (Gin, etc.)
+**I'm Ratheesh G Kumar, a passionate Go-lang developer from India.**
 
-Open to: Collaborating on exciting projects involving back-end development, databases, and containerization.
+- 🌱 **I’m currently learning Go-lang.**
+- 👨‍💻 **All of my projects are available at [GitHub](https://github.com/ratheeshkumar25).**
+- 💬 **Ask me about PostgreSQL databases, Git, Data structures, new trends in development, and anything about Go.**
+- 📫 **How to reach me: ratheeshgopinadhkumar@gmail.com.**
+- **Connect with me on [LinkedIn](www.linkedin.com/in/ratheesh-gopinadh-kumar-b5191166).**
 
-Reach out to me: (ratheeshgk@gmil.com)
-
-Linkedin- https://www.linkedin.com/in/ratheesh-gopinadh-kumar-b5191166
-
-
-
-<!---
-ratheeshkumar25/ratheeshkumar25 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+### Languages and Tools:
+**AWS, Bootstrap, C, CSS, Docker, Git, Go, HTML, Java, JavaScript, Kubernetes, MongoDB, MySQL, PostgreSQL, Postman**
