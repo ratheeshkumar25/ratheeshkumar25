@@ -7,6 +7,9 @@ I'm a passionate Go-lang developer from India.
 - 💬 Ask me about PostgreSQL databases, Git, Data structures, new trends in development, and anything about Go.
 - 📫 How to reach me: [ratheeshgopinadhkumar@gmail.com](mailto:ratheeshgopinadhkumar@gmail.com).
 
+<p align="left">
+  <img src="https://komarev.com/ghpvc/?username=athunlal&label=Profile%20views&color=0e75b6&style=flat" alt="ratheeshkumar" />
+</p>
 
   ### Connect with me:
   [![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ratheesh-gopinadh-kumar-b5191166)
