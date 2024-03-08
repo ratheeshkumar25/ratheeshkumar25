@@ -6,9 +6,24 @@ I'm a passionate Go-lang developer from India.
 - 👨‍💻 All of my projects are available at [GitHub](https://github.com/ratheeshkumar25).
 - 💬 Ask me about PostgreSQL databases, Git, Data structures, new trends in development, and anything about Go.
 - 📫 How to reach me: [ratheeshgopinadhkumar@gmail.com](mailto:ratheeshgopinadhkumar@gmail.com).
-- Connect with me on [LinkedIn](https://www.linkedin.com/in/ratheesh-gopinadh-kumar-b5191166/).
 
-### Languages and Tools:
+<div style="animation: fadeInUp 2s ease;">
+  ### Connect with me:
+  [![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ratheesh-gopinadh-kumar-b5191166)
+</div>
+
+<style>
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
 
 ![AWS](https://img.shields.io/badge/-AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/-Bootstrap-563D7C?style=flat-square&logo=bootstrap&logoColor=white)
