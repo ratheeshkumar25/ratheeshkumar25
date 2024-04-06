@@ -8,7 +8,7 @@ I'm a passionate Go-lang developer from India.
 - 📫 How to reach me: [ratheeshgopinadhkumar@gmail.com](mailto:ratheeshgopinadhkumar@gmail.com).
 
 <p align="left">
-  <img src="https://komarev.com/ghpvc/?username=athunlal&label=Profile%20views&color=0e75b6&style=flat" alt="ratheeshkumar" />
+  <img src="https://komarev.com/ghpvc/?username=ratheeshkumar&label=Profile%20views&color=0e75b6&style=flat" alt="ratheeshkumar" />
 </p>
 
   ### Connect with me:
