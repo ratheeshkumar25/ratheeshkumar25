@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: AI GitHub Issue Bot
+      - name: AI GitHub Bot
         uses: actions/github-script@v6
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         with:
           script: |
             const isIssue = context.eventName === 'issues';
@@ -29,23 +31,31 @@ jobs:
               issueNumber = context.payload.issue.number;
             }
 
-            const openaiKey = process.env.OPENAI_API_KEY;
-
             const prompt = `You are a professional backend developer bot named RatheeshBot. Help answer the following GitHub query in a helpful and polite tone:\n\n${message}`;
 
-            const response = await fetch("https://api.openai.com/v1/chat/completions", {
+            const openaiResponse = await fetch("https://api.openai.com/v1/chat/completions", {
               method: "POST",
               headers: {
-                "Authorization": `Bearer ${openaiKey}`,
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
               },
               body: JSON.stringify({
                 model: "gpt-3.5-turbo",
-                messages: [{ role: "user", content: prompt }]
+                messages: [
+                  {
+                    role: "user",
+                    content: prompt
+                  }
+                ]
               })
             });
 
-            const result = await response.json();
+            const result = await openaiResponse.json();
+
+            if (!result.choices || result.choices.length === 0) {
+              throw new Error("OpenAI API failed: " + JSON.stringify(result, null, 2));
+            }
+
             const reply = result.choices[0].message.content;
 
             await github.rest.issues.createComment({
@@ -54,5 +64,3 @@ jobs:
               repo: context.repo.repo,
               body: reply
             });
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
