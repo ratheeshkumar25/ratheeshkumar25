@@ -98,6 +98,7 @@ I'm a passionate **Go-lang developer** from India, dedicated to building scalabl
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ratheeshkumar25/ratheeshkumar25/output/snake.svg" alt="Snake animation" />
+
 </div>
 
 ---
