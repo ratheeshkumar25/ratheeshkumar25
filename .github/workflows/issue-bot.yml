@@ -15,9 +15,12 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
+            const fetch = require('node-fetch');
+
             const message = context.eventName === 'issues'
               ? `Issue Title: ${context.payload.issue.title}\nIssue Body: ${context.payload.issue.body}`
               : `Comment: ${context.payload.comment.body}`;
+
             const issueNumber = context.payload.issue.number;
 
             const prompt = `You are a professional backend developer bot named RatheeshBot. Help answer this GitHub query politely and helpfully:\n\n${message}`;
@@ -28,10 +31,12 @@ jobs:
               method: 'POST',
               headers: {
                 'Authorization': `Bearer ${openRouterKey}`,
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'HTTP-Referer': 'https://github.com/ratheeshkumar25',   // <- required
+                'X-Title': 'GitHub Issue Bot'                           // <- required
               },
               body: JSON.stringify({
-                model: 'openai/gpt-3.5-turbo',
+                model: 'openai/gpt-3.5-turbo', // Or try "mistralai/mistral-7b-instruct"
                 messages: [
                   { role: 'system', content: 'You are RatheeshBot, a helpful backend development assistant.' },
                   { role: 'user', content: prompt }
@@ -40,7 +45,8 @@ jobs:
             });
 
             if (!response.ok) {
-              throw new Error(`OpenRouter API error: ${response.statusText}`);
+              const errorText = await response.text();
+              throw new Error(`OpenRouter API error (${response.status}): ${errorText}`);
             }
 
             const data = await response.json();
