@@ -177,6 +177,27 @@ func main() {
 </div>
 
 ---
+---
+
+## 🤖 Interactive Commands
+
+Want to interact with my profile? Try these commands:
+
+<div align="center">
+  
+  [![Ask about Experience](https://img.shields.io/badge/💼-Ask%20about%20Experience-00ADD8?style=for-the-badge)](https://github.com/ratheeshkumar25/ratheeshkumar25/issues/new?title=Tell%20me%20about%20your%20experience&body=I%27d%20like%20to%20know%20about%20your%20professional%20experience%20and%20skills)
+  
+  [![See Projects](https://img.shields.io/badge/🚀-See%20My%20Projects-00ADD8?style=for-the-badge)](https://github.com/ratheeshkumar25/ratheeshkumar25/issues/new?title=Show%20me%20your%20projects&body=I%27m%20interested%20in%20your%20projects%20and%20work)
+  
+  [![Get Contact Info](https://img.shields.io/badge/📱-Get%20Contact%20Info-00ADD8?style=for-the-badge)](https://github.com/ratheeshkumar25/ratheeshkumar25/issues/new?title=How%20to%20connect&body=I%27d%20like%20to%20connect%20with%20you)
+  
+  [![Tech Stack](https://img.shields.io/badge/🛠️-Tech%20Stack%20Details-00ADD8?style=for-the-badge)](https://github.com/ratheeshkumar25/ratheeshkumar25/issues/new?title=Your%20tech%20stack&body=Tell%20me%20about%20your%20technology%20stack)
+  
+</div>
+
+**🚀 The bot responds automatically within seconds!**
+
+---
 
 <div align="center">
   <h3>✨ Thanks for visiting my profile! ✨</h3>
