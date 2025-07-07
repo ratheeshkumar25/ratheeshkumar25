@@ -32,7 +32,7 @@ jobs:
                 'X-Title': 'GitHub Issue Bot'
               },
               body: JSON.stringify({
-                model: 'openrouter/meta-llama/llama-3-8b-instruct',
+                model: 'mistralai/mistral-7b-instruct',
                 messages: [
                   { role: 'system', content: 'You are RatheeshBot, a helpful backend development assistant.' },
                   { role: 'user', content: prompt }
