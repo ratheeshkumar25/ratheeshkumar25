@@ -34,64 +34,27 @@ jobs:
             let response = '';
 
             if (triggerText.includes('experience') || triggerText.includes('skills')) {
-              response = `👋 **Hi there! I'm Ratheesh Kumar**
-
-🔧 Backend Developer with strong skills in:
-
-- Golang 🐹  
-- PostgreSQL 🐘  
-- Microservices ⚙️  
-- Docker & Kubernetes 🐳  
-- System Design & Optimization 💡
-
-Let me know if you'd like to learn more about any of these!`;
+              response = "👋 **Hi there! I'm Ratheesh Kumar**\n\n🔧 Backend Developer with strong skills in:\n\n- Golang 🐹\n- PostgreSQL 🐘\n- Microservices ⚙️\n- Docker & Kubernetes 🐳\n- System Design & Optimization 💡\n\nLet me know if you'd like to learn more about any of these!";
             }
 
             else if (triggerText.includes('golang') || triggerText.includes('go')) {
-              response = `🐹 **GoLang Insights**
-
-- Go is my primary backend language.
-- I specialize in goroutines, channels, REST APIs, and performance tuning.
-- Ask me anything about concurrency, interfaces, or idiomatic Go patterns!`;
+              response = "🐹 **GoLang Insights**\n\n- Go is my primary backend language.\n- I specialize in goroutines, channels, REST APIs, and performance tuning.\n- Ask me anything about concurrency, interfaces, or idiomatic Go patterns!";
             }
 
             else if (triggerText.includes('postgres') || triggerText.includes('postgresql')) {
-              response = `🐘 **PostgreSQL Expertise**
-
-- Experienced in schema design, indexes, joins, views, and stored procedures.
-- I’ve optimized queries for high-traffic backend services.
-- Feel free to ask how I use it with Go!`;
+              response = "🐘 **PostgreSQL Expertise**\n\n- Experienced in schema design, indexes, joins, views, and stored procedures.\n- I’ve optimized queries for high-traffic backend services.\n- Feel free to ask how I use it with Go!";
             }
 
             else if (triggerText.includes('projects') || triggerText.includes('work')) {
-              response = `🚀 **My Top Projects**
-
-- [Opti Cutter Final](https://github.com/ratheeshkumar25/opti_cutter_final)
-- [Restaurant Management](https://github.com/ratheeshkumar25/restaurantmgt)
-- [Blog CRUD](https://github.com/ratheeshkumar25/blog-crud)
-
-Let me know if you'd like to dive deeper into any one!`;
+              response = "🚀 **My Top Projects**\n\n- [Opti Cutter Final](https://github.com/ratheeshkumar25/opti_cutter_final)\n- [Restaurant Management](https://github.com/ratheeshkumar25/restaurantmgt)\n- [Blog CRUD](https://github.com/ratheeshkumar25/blog-crud)\n\nLet me know if you'd like to dive deeper into any one!";
             }
 
             else if (triggerText.includes('contact') || triggerText.includes('connect')) {
-              response = `📬 **Contact Me**
-
-- 📧 Email: [ratheeshgopinadhkumar@gmail.com](mailto:ratheeshgopinadhkumar@gmail.com)
-- 💼 LinkedIn: [Ratheesh G Kumar](https://www.linkedin.com/in/ratheesh-gopinadh-kumar-b5191166)
-- 💻 GitHub: [@ratheeshkumar25](https://github.com/ratheeshkumar25)`;
+              response = "📬 **Contact Me**\n\n- 📧 Email: [ratheeshgopinadhkumar@gmail.com](mailto:ratheeshgopinadhkumar@gmail.com)\n- 💼 LinkedIn: [Ratheesh G Kumar](https://www.linkedin.com/in/ratheesh-gopinadh-kumar-b5191166)\n- 💻 GitHub: [@ratheeshkumar25](https://github.com/ratheeshkumar25)";
             }
 
             else {
-              response = `🤖 **Hi! I'm Ratheesh's Profile Bot**
-
-Type your question using keywords like:
-- "experience"
-- "Golang"
-- "PostgreSQL"
-- "projects"
-- "contact"
-
-I'll reply automatically with relevant info! 🚀`;
+              response = "🤖 **Hi! I'm Ratheesh's Profile Bot**\n\nType your question using keywords like:\n- \"experience\"\n- \"Golang\"\n- \"PostgreSQL\"\n- \"projects\"\n- \"contact\"\n\nI'll reply automatically with relevant info! 🚀";
             }
 
             github.rest.issues.createComment({
