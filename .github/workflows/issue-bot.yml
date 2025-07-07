@@ -1,4 +1,5 @@
 name: Profile Bot Response
+
 on:
   issues:
     types: [opened]
@@ -8,120 +9,94 @@ on:
 jobs:
   respond:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Auto Response Bot
-      uses: actions/github-script@v6
-      with:
-        script: |
-          const isIssue = context.eventName === 'issues';
-          const isComment = context.eventName === 'issue_comment';
-          
-          let triggerText = '';
-          let issueNumber = 0;
-          
-          if (isIssue) {
-            triggerText = context.payload.issue.body.toLowerCase();
-            issueNumber = context.payload.issue.number;
-          } else if (isComment) {
-            triggerText = context.payload.comment.body.toLowerCase();
-            issueNumber = context.payload.issue.number;
-          }
-          
-          let response = '';
-          
-          // Bot responses based on keywords
-          if (triggerText.includes('experience') || triggerText.includes('skills')) {
-            response = `👋 **Hi there! I'm Ratheesh Kumar**
-            
-            🚀 **Core Skills:**
-            - 🔧 Backend Development with Go
-            - 🗄️ PostgreSQL & Database Design  
-            - 🏗️ Microservices Architecture
-            - 🐳 Docker & Kubernetes
-            - ☁️ AWS Cloud Services
-            
-            📈 **Experience:** 
-            - Building scalable distributed systems
-            - Restaurant management systems  
-            - Optimization algorithms
-            - CRUD applications
-            
-            💼 Connect with me on [LinkedIn](https://www.linkedin.com/in/ratheesh-gopinadh-kumar-b5191166)!`;
-          }
-          
-          else if (triggerText.includes('projects') || triggerText.includes('work')) {
-            response = `🌟 **Featured Projects:**
-            
-            🔧 **[Opti Cutter Final](https://github.com/ratheeshkumar25/opti_cutter_final)**
-            - Advanced cutting optimization system
-            - Algorithm optimization with Go
-            
-            🍽️ **[Restaurant Management](https://github.com/ratheeshkumar25/restaurantmgt)**
-            - Complete restaurant management system
-            - Go, PostgreSQL, REST API
-            
-            📝 **[Blog CRUD](https://github.com/ratheeshkumar25/blog-crud)**
-            - Full-stack blog application
-            - CRUD operations with Go
-            
-            🤝 Want to collaborate? Let's connect!`;
-          }
-          
-          else if (triggerText.includes('contact') || triggerText.includes('connect')) {
-            response = `📫 **Let's Connect!**
-            
-            - 📧 Email: [ratheeshgopinadhkumar@gmail.com](mailto:ratheeshgopinadhkumar@gmail.com)
-            - 💼 LinkedIn: [Ratheesh G Kumar](https://www.linkedin.com/in/ratheesh-gopinadh-kumar-b5191166)
-            - 💻 GitHub: [@ratheeshkumar25](https://github.com/ratheeshkumar25)
-            
-            Always open to discussing Go development, database optimization, or potential collaborations! 🚀`;
-          }
-          
-          else if (triggerText.includes('tech') || triggerText.includes('stack')) {
-            response = `🛠️ **My Tech Stack:**
-            
-            **Languages:** 
-            - Go 🐹
-            - JavaScript 💛
-            - C ⚡
-            
-            **Databases:** 
-            - PostgreSQL 🐘
-            - MySQL 🐬
-            - MongoDB 🍃
-            
-            **DevOps:** 
-            - Docker 🐳
-            - Kubernetes ⚙️
-            - AWS ☁️
-            
-            **Tools:** 
-            - Git 📝
-            - Postman 📬
-            - VS Code 💻
-            
-            Currently exploring: System Design, Cloud-Native Technologies, and advanced Go patterns! 🌟`;
-          }
-          
-          else {
-            response = `🤖 **Hi! I'm Ratheesh's Profile Bot**
-            
-            Ask me about:
-            - 💼 **experience** or **skills** - My professional background
-            - 🚀 **projects** or **work** - My featured projects  
-            - 📱 **contact** or **connect** - How to reach me
-            - 🛠️ **tech** or **stack** - My technology stack
-            
-            Just type your question in a comment or create an issue! 
-            
-            Example: "Tell me about your experience" or "Show me your projects"`;
-          }
-          
-          github.rest.issues.createComment({
-            issue_number: issueNumber,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: response
-          });
+      - uses: actions/checkout@v3
+
+      - name: Auto Response Bot
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const isIssue = context.eventName === 'issues';
+            const isComment = context.eventName === 'issue_comment';
+
+            let triggerText = '';
+            let issueNumber = 0;
+
+            if (isIssue) {
+              triggerText = context.payload.issue.title.toLowerCase() + ' ' + context.payload.issue.body.toLowerCase();
+              issueNumber = context.payload.issue.number;
+            } else if (isComment) {
+              triggerText = context.payload.comment.body.toLowerCase();
+              issueNumber = context.payload.issue.number;
+            }
+
+            let response = '';
+
+            if (triggerText.includes('experience') || triggerText.includes('skills')) {
+              response = `👋 **Hi there! I'm Ratheesh Kumar**
+
+🔧 Backend Developer with strong skills in:
+
+- Golang 🐹  
+- PostgreSQL 🐘  
+- Microservices ⚙️  
+- Docker & Kubernetes 🐳  
+- System Design & Optimization 💡
+
+Let me know if you'd like to learn more about any of these!`;
+            }
+
+            else if (triggerText.includes('golang') || triggerText.includes('go')) {
+              response = `🐹 **GoLang Insights**
+
+- Go is my primary backend language.
+- I specialize in goroutines, channels, REST APIs, and performance tuning.
+- Ask me anything about concurrency, interfaces, or idiomatic Go patterns!`;
+            }
+
+            else if (triggerText.includes('postgres') || triggerText.includes('postgresql')) {
+              response = `🐘 **PostgreSQL Expertise**
+
+- Experienced in schema design, indexes, joins, views, and stored procedures.
+- I’ve optimized queries for high-traffic backend services.
+- Feel free to ask how I use it with Go!`;
+            }
+
+            else if (triggerText.includes('projects') || triggerText.includes('work')) {
+              response = `🚀 **My Top Projects**
+
+- [Opti Cutter Final](https://github.com/ratheeshkumar25/opti_cutter_final)
+- [Restaurant Management](https://github.com/ratheeshkumar25/restaurantmgt)
+- [Blog CRUD](https://github.com/ratheeshkumar25/blog-crud)
+
+Let me know if you'd like to dive deeper into any one!`;
+            }
+
+            else if (triggerText.includes('contact') || triggerText.includes('connect')) {
+              response = `📬 **Contact Me**
+
+- 📧 Email: [ratheeshgopinadhkumar@gmail.com](mailto:ratheeshgopinadhkumar@gmail.com)
+- 💼 LinkedIn: [Ratheesh G Kumar](https://www.linkedin.com/in/ratheesh-gopinadh-kumar-b5191166)
+- 💻 GitHub: [@ratheeshkumar25](https://github.com/ratheeshkumar25)`;
+            }
+
+            else {
+              response = `🤖 **Hi! I'm Ratheesh's Profile Bot**
+
+Type your question using keywords like:
+- "experience"
+- "Golang"
+- "PostgreSQL"
+- "projects"
+- "contact"
+
+I'll reply automatically with relevant info! 🚀`;
+            }
+
+            github.rest.issues.createComment({
+              issue_number: issueNumber,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: response
+            });
