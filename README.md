@@ -145,13 +145,43 @@ func main() {
 ## 🌟 Featured Projects
 
 <div align="center">
-  <a href="https://github.com/ratheeshkumar25/project1">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=ratheeshkumar25&repo=project1&theme=tokyonight&hide_border=true" alt="Project 1" />
+  <a href="https://github.com/ratheeshkumar25/docker-restaurant">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=ratheeshkumar25&repo=docker-restaurant&theme=tokyonight&hide_border=true" alt="docker-restaurant" />
   </a>
-  <a href="https://github.com/ratheeshkumar25/project2">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=ratheeshkumar25&repo=project2&theme=tokyonight&hide_border=true" alt="Project 2" />
+  <a href="https://github.com/ratheeshkumar25/opti_cutter_final">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=ratheeshkumar25&repo=opti_cutter_final&theme=tokyonight&hide_border=true" alt="opti_cutter_final" />
+  </a>
+  <a href="https://github.com/ratheeshkumar25/blog-crud">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=ratheeshkumar25&repo=blog-crud&theme=tokyonight&hide_border=true" alt="blog-crud" />
   </a>
 </div>
+
+---
+
+### 📌 Project Descriptions
+
+#### 🔹 [docker-restaurant](https://github.com/ratheeshkumar25/docker-restaurant)
+A full-featured restaurant management system built with **Golang**, **PostgreSQL**, **Redis**, and **Docker**, following **microservices architecture**.
+
+- User reservation and ordering via mobile OTP (Twilio)
+- Admin panel with Razorpay payments, reports, table & staff management
+- JWT-based authentication, RESTful API with clean architecture
+- Deployed with Docker and Kubernetes-ready
+
+#### 🔹 [opti_cutter_final](https://github.com/ratheeshkumar25/opti_cutter_final)
+An optimization tool for cutting stock problems used in manufacturing.
+
+- Uses a **Greedy algorithm** for efficient stock utilization
+- Built in **Golang** with clean modular code structure
+- CLI-based input/output for production use
+
+#### 🔹 [blog-crud](https://github.com/ratheeshkumar25/blog-crud)
+A simple blog platform showcasing CRUD operations using **Go Fiber** framework.
+
+- RESTful API to create, update, delete, and fetch blog posts
+- Integrated PostgreSQL database and JWT auth
+- Good starter project for beginners to understand Go backend structure
+
 
 ---
 
