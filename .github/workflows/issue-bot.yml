@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
       - name: Auto Response Bot
         uses: actions/github-script@v6
@@ -77,3 +78,26 @@ Let me know if you'd like to dive deeper into any one!`;
               response = `📬 **Contact Me**
 
 - 📧 Email: [ratheeshgopinadhkumar@gmail.com](mailto:ratheeshgopinadhkumar@gmail.com)
+- 💼 LinkedIn: [Ratheesh G Kumar](https://www.linkedin.com/in/ratheesh-gopinadh-kumar-b5191166)
+- 💻 GitHub: [@ratheeshkumar25](https://github.com/ratheeshkumar25)`;
+            }
+
+            else {
+              response = `🤖 **Hi! I'm Ratheesh's Profile Bot**
+
+Type your question using keywords like:
+- "experience"
+- "Golang"
+- "PostgreSQL"
+- "projects"
+- "contact"
+
+I'll reply automatically with relevant info! 🚀`;
+            }
+
+            github.rest.issues.createComment({
+              issue_number: issueNumber,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: response
+            });
