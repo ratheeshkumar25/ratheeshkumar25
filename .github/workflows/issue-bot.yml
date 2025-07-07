@@ -11,12 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Use Node.js for scripting
+      - name: AI GitHub Issue Bot
         uses: actions/github-script@v6
         with:
           script: |
-            const axios = require('axios');
-
             const isIssue = context.eventName === 'issues';
             const isComment = context.eventName === 'issue_comment';
 
@@ -35,21 +33,20 @@ jobs:
 
             const prompt = `You are a professional backend developer bot named RatheeshBot. Help answer the following GitHub query in a helpful and polite tone:\n\n${message}`;
 
-            const response = await axios.post(
-              'https://api.openai.com/v1/chat/completions',
-              {
+            const response = await fetch("https://api.openai.com/v1/chat/completions", {
+              method: "POST",
+              headers: {
+                "Authorization": `Bearer ${openaiKey}`,
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
                 model: "gpt-3.5-turbo",
                 messages: [{ role: "user", content: prompt }]
-              },
-              {
-                headers: {
-                  'Authorization': `Bearer ${openaiKey}`,
-                  'Content-Type': 'application/json'
-                }
-              }
-            );
+              })
+            });
 
-            const reply = response.data.choices[0].message.content;
+            const result = await response.json();
+            const reply = result.choices[0].message.content;
 
             await github.rest.issues.createComment({
               issue_number: issueNumber,
