@@ -19,7 +19,7 @@ I'm a passionate **Go-lang developer** from India, dedicated to building scalabl
 <img align="right" alt="Coding" width="400" src="https://raw.githubusercontent.com/devSouvik/devSouvik/master/gif3.gif">
 
 - 🔭 I'm currently working on **distributed systems** and **microservices**
-- 🌱 I'm currently learning **Go-lang** and **cloud-native technologies**
+- 🌱 I'm always learning and exploring new technologies in the ever-evolving tech landscape
 - 👨‍💻 All of my projects are available at [GitHub](https://github.com/ratheeshkumar25)
 - 💬 Ask me about **PostgreSQL**, **Git**, **Data structures**, **Go**, and **backend development**
 - 📫 How to reach me: [ratheeshgopinadhkumar@gmail.com](mailto:ratheeshgopinadhkumar@gmail.com)
