@@ -15,8 +15,6 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const fetch = require('node-fetch');
-
             const message = context.eventName === 'issues'
               ? `Issue Title: ${context.payload.issue.title}\nIssue Body: ${context.payload.issue.body}`
               : `Comment: ${context.payload.comment.body}`;
@@ -32,11 +30,11 @@ jobs:
               headers: {
                 'Authorization': `Bearer ${openRouterKey}`,
                 'Content-Type': 'application/json',
-                'HTTP-Referer': 'https://github.com/ratheeshkumar25',   // <- required
-                'X-Title': 'GitHub Issue Bot'                           // <- required
+                'HTTP-Referer': 'https://github.com/ratheeshkumar25',
+                'X-Title': 'GitHub Issue Bot'
               },
               body: JSON.stringify({
-                model: 'openai/gpt-3.5-turbo', // Or try "mistralai/mistral-7b-instruct"
+                model: 'openai/gpt-3.5-turbo',
                 messages: [
                   { role: 'system', content: 'You are RatheeshBot, a helpful backend development assistant.' },
                   { role: 'user', content: prompt }
