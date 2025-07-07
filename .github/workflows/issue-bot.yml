@@ -1,7 +1,9 @@
-name: Issue Bot Response
+name: Profile Bot Response
 on:
   issues:
     types: [opened]
+  issue_comment:
+    types: [created]
 
 jobs:
   respond:
@@ -13,32 +15,43 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          const issue = context.payload.issue;
-          const issueBody = issue.body.toLowerCase();
+          const isIssue = context.eventName === 'issues';
+          const isComment = context.eventName === 'issue_comment';
+          
+          let triggerText = '';
+          let issueNumber = 0;
+          
+          if (isIssue) {
+            triggerText = context.payload.issue.body.toLowerCase();
+            issueNumber = context.payload.issue.number;
+          } else if (isComment) {
+            triggerText = context.payload.comment.body.toLowerCase();
+            issueNumber = context.payload.issue.number;
+          }
           
           let response = '';
           
           // Bot responses based on keywords
-          if (issueBody.includes('experience') || issueBody.includes('skills')) {
-            response = `👋 Hi there! I'm Ratheesh, a passionate Go developer with expertise in:
+          if (triggerText.includes('experience') || triggerText.includes('skills')) {
+            response = `👋 **Hi there! I'm Ratheesh Kumar**
             
             🚀 **Core Skills:**
-            - Backend Development with Go
-            - PostgreSQL & Database Design
-            - Microservices Architecture
-            - Docker & Kubernetes
-            - AWS Cloud Services
+            - 🔧 Backend Development with Go
+            - 🗄️ PostgreSQL & Database Design  
+            - 🏗️ Microservices Architecture
+            - 🐳 Docker & Kubernetes
+            - ☁️ AWS Cloud Services
             
             📈 **Experience:** 
             - Building scalable distributed systems
-            - Restaurant management systems
+            - Restaurant management systems  
             - Optimization algorithms
             - CRUD applications
             
-            Feel free to check out my repositories or connect with me on [LinkedIn](https://www.linkedin.com/in/ratheesh-gopinadh-kumar-b5191166)!`;
+            💼 Connect with me on [LinkedIn](https://www.linkedin.com/in/ratheesh-gopinadh-kumar-b5191166)!`;
           }
           
-          else if (issueBody.includes('projects') || issueBody.includes('work')) {
+          else if (triggerText.includes('projects') || triggerText.includes('work')) {
             response = `🌟 **Featured Projects:**
             
             🔧 **[Opti Cutter Final](https://github.com/ratheeshkumar25/opti_cutter_final)**
@@ -53,28 +66,43 @@ jobs:
             - Full-stack blog application
             - CRUD operations with Go
             
-            Want to collaborate? Let's connect!`;
+            🤝 Want to collaborate? Let's connect!`;
           }
           
-          else if (issueBody.includes('contact') || issueBody.includes('connect')) {
+          else if (triggerText.includes('contact') || triggerText.includes('connect')) {
             response = `📫 **Let's Connect!**
             
             - 📧 Email: [ratheeshgopinadhkumar@gmail.com](mailto:ratheeshgopinadhkumar@gmail.com)
             - 💼 LinkedIn: [Ratheesh G Kumar](https://www.linkedin.com/in/ratheesh-gopinadh-kumar-b5191166)
             - 💻 GitHub: [@ratheeshkumar25](https://github.com/ratheeshkumar25)
             
-            Always open to discussing Go development, database optimization, or potential collaborations!`;
+            Always open to discussing Go development, database optimization, or potential collaborations! 🚀`;
           }
           
-          else if (issueBody.includes('tech') || issueBody.includes('stack')) {
+          else if (triggerText.includes('tech') || triggerText.includes('stack')) {
             response = `🛠️ **My Tech Stack:**
             
-            **Languages:** Go, JavaScript, C
-            **Databases:** PostgreSQL, MySQL, MongoDB
-            **DevOps:** Docker, Kubernetes, AWS
-            **Tools:** Git, Postman, VS Code
+            **Languages:** 
+            - Go 🐹
+            - JavaScript 💛
+            - C ⚡
             
-            Currently exploring: System Design, Cloud-Native Technologies, and advanced Go patterns!`;
+            **Databases:** 
+            - PostgreSQL 🐘
+            - MySQL 🐬
+            - MongoDB 🍃
+            
+            **DevOps:** 
+            - Docker 🐳
+            - Kubernetes ⚙️
+            - AWS ☁️
+            
+            **Tools:** 
+            - Git 📝
+            - Postman 📬
+            - VS Code 💻
+            
+            Currently exploring: System Design, Cloud-Native Technologies, and advanced Go patterns! 🌟`;
           }
           
           else {
@@ -82,15 +110,17 @@ jobs:
             
             Ask me about:
             - 💼 **experience** or **skills** - My professional background
-            - 🚀 **projects** or **work** - My featured projects
+            - 🚀 **projects** or **work** - My featured projects  
             - 📱 **contact** or **connect** - How to reach me
             - 🛠️ **tech** or **stack** - My technology stack
             
-            Or just say hi! I'm always happy to connect with fellow developers.`;
+            Just type your question in a comment or create an issue! 
+            
+            Example: "Tell me about your experience" or "Show me your projects"`;
           }
           
           github.rest.issues.createComment({
-            issue_number: issue.number,
+            issue_number: issueNumber,
             owner: context.repo.owner,
             repo: context.repo.repo,
             body: response
