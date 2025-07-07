@@ -11,52 +11,40 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: AI GitHub Bot
+      - name: Use GitHub Script with OpenRouter
         uses: actions/github-script@v6
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         with:
           script: |
-            const isIssue = context.eventName === 'issues';
-            const isComment = context.eventName === 'issue_comment';
+            const message = context.eventName === 'issues'
+              ? `Issue Title: ${context.payload.issue.title}\nIssue Body: ${context.payload.issue.body}`
+              : `Comment: ${context.payload.comment.body}`;
+            const issueNumber = context.payload.issue.number;
 
-            let message = '';
-            let issueNumber = 0;
+            const prompt = `You are a professional backend developer bot named RatheeshBot. Help answer this GitHub query politely and helpfully:\n\n${message}`;
 
-            if (isIssue) {
-              message = `Issue Title: ${context.payload.issue.title}\nIssue Body: ${context.payload.issue.body}`;
-              issueNumber = context.payload.issue.number;
-            } else if (isComment) {
-              message = `Comment: ${context.payload.comment.body}`;
-              issueNumber = context.payload.issue.number;
-            }
+            const openRouterKey = process.env.OPENROUTER_API_KEY;
 
-            const prompt = `You are a professional backend developer bot named RatheeshBot. Help answer the following GitHub query in a helpful and polite tone:\n\n${message}`;
-
-            const openaiResponse = await fetch("https://api.openai.com/v1/chat/completions", {
-              method: "POST",
+            const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+              method: 'POST',
               headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
+                'Authorization': `Bearer ${openRouterKey}`,
+                'Content-Type': 'application/json'
               },
               body: JSON.stringify({
-                model: "gpt-3.5-turbo",
+                model: 'openai/gpt-3.5-turbo',
                 messages: [
-                  {
-                    role: "user",
-                    content: prompt
-                  }
+                  { role: 'system', content: 'You are RatheeshBot, a helpful backend development assistant.' },
+                  { role: 'user', content: prompt }
                 ]
               })
             });
 
-            const result = await openaiResponse.json();
-
-            if (!result.choices || result.choices.length === 0) {
-              throw new Error("OpenAI API failed: " + JSON.stringify(result, null, 2));
+            if (!response.ok) {
+              throw new Error(`OpenRouter API error: ${response.statusText}`);
             }
 
-            const reply = result.choices[0].message.content;
+            const data = await response.json();
+            const reply = data.choices?.[0]?.message?.content || "Sorry, I couldn't generate a reply.";
 
             await github.rest.issues.createComment({
               issue_number: issueNumber,
@@ -64,3 +52,6 @@ jobs:
               repo: context.repo.repo,
               body: reply
             });
+
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
