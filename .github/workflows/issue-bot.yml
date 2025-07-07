@@ -1,4 +1,4 @@
-name: Profile Bot Response
+name: AI Issue Bot
 
 on:
   issues:
@@ -11,55 +11,51 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Auto Response Bot
+      - name: Use Node.js for scripting
         uses: actions/github-script@v6
         with:
           script: |
+            const axios = require('axios');
+
             const isIssue = context.eventName === 'issues';
             const isComment = context.eventName === 'issue_comment';
 
-            let triggerText = '';
+            let message = '';
             let issueNumber = 0;
 
             if (isIssue) {
-              triggerText = (context.payload.issue.title + ' ' + context.payload.issue.body).toLowerCase();
+              message = `Issue Title: ${context.payload.issue.title}\nIssue Body: ${context.payload.issue.body}`;
               issueNumber = context.payload.issue.number;
             } else if (isComment) {
-              triggerText = context.payload.comment.body.toLowerCase();
+              message = `Comment: ${context.payload.comment.body}`;
               issueNumber = context.payload.issue.number;
             }
 
-            let response = '';
+            const openaiKey = process.env.OPENAI_API_KEY;
 
-            if (triggerText.includes('experience') || triggerText.includes('skills')) {
-              response = "👋 **Hi there! I'm Ratheesh Kumar**\n\n🔧 Backend Developer with strong skills in:\n\n- Golang 🐹\n- PostgreSQL 🐘\n- Microservices ⚙️\n- Docker & Kubernetes 🐳\n- System Design & Optimization 💡\n\nLet me know if you'd like to learn more about any of these!";
-            }
+            const prompt = `You are a professional backend developer bot named RatheeshBot. Help answer the following GitHub query in a helpful and polite tone:\n\n${message}`;
 
-            else if (triggerText.includes('golang') || triggerText.includes('go')) {
-              response = "🐹 **GoLang Insights**\n\n- Go is my primary backend language.\n- I specialize in goroutines, channels, REST APIs, and performance tuning.\n- Ask me anything about concurrency, interfaces, or idiomatic Go patterns!";
-            }
+            const response = await axios.post(
+              'https://api.openai.com/v1/chat/completions',
+              {
+                model: "gpt-3.5-turbo",
+                messages: [{ role: "user", content: prompt }]
+              },
+              {
+                headers: {
+                  'Authorization': `Bearer ${openaiKey}`,
+                  'Content-Type': 'application/json'
+                }
+              }
+            );
 
-            else if (triggerText.includes('postgres') || triggerText.includes('postgresql')) {
-              response = "🐘 **PostgreSQL Expertise**\n\n- Experienced in schema design, indexes, joins, views, and stored procedures.\n- I’ve optimized queries for high-traffic backend services.\n- Feel free to ask how I use it with Go!";
-            }
+            const reply = response.data.choices[0].message.content;
 
-            else if (triggerText.includes('projects') || triggerText.includes('work')) {
-              response = "🚀 **My Top Projects**\n\n- [Opti Cutter Final](https://github.com/ratheeshkumar25/opti_cutter_final)\n- [Restaurant Management](https://github.com/ratheeshkumar25/restaurantmgt)\n- [Blog CRUD](https://github.com/ratheeshkumar25/blog-crud)\n\nLet me know if you'd like to dive deeper into any one!";
-            }
-
-            else if (triggerText.includes('contact') || triggerText.includes('connect')) {
-              response = "📬 **Contact Me**\n\n- 📧 Email: [ratheeshgopinadhkumar@gmail.com](mailto:ratheeshgopinadhkumar@gmail.com)\n- 💼 LinkedIn: [Ratheesh G Kumar](https://www.linkedin.com/in/ratheesh-gopinadh-kumar-b5191166)\n- 💻 GitHub: [@ratheeshkumar25](https://github.com/ratheeshkumar25)";
-            }
-
-            else {
-              response = "🤖 **Hi! I'm Ratheesh's Profile Bot**\n\nType your question using keywords like:\n- \"experience\"\n- \"Golang\"\n- \"PostgreSQL\"\n- \"projects\"\n- \"contact\"\n\nI'll reply automatically with relevant info! 🚀";
-            }
-
-            github.rest.issues.createComment({
+            await github.rest.issues.createComment({
               issue_number: issueNumber,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: response
+              body: reply
             });
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
