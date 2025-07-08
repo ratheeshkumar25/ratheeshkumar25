@@ -16,10 +16,32 @@ jobs:
         with:
           script: |
             const message = context.eventName === 'issues'
-              ? `Issue Title: ${context.payload.issue.title}\nIssue Body: ${context.payload.issue.body}`
-              : `Comment: ${context.payload.comment.body}`;
+              ? `${context.payload.issue.title}\n\n${context.payload.issue.body}`
+              : context.payload.comment.body;
 
             const issueNumber = context.payload.issue.number;
+            const lowerMessage = message.toLowerCase();
+
+            let predefinedReply = null;
+
+            if (lowerMessage.includes("experience")) {
+              predefinedReply = `🚀 **Experience**\n\nI have over **1.8 years** of experience with **Go (Golang)**. I'm passionate about building **scalable systems** using Go.`;
+            } else if (lowerMessage.includes("project")) {
+              predefinedReply = `📦 **Projects**\n\nCheck out my key projects:\n\n- 🔹 [Opti Cutter](https://github.com/ratheeshkumar25/opti_cutter_final): A manufacturing optimization tool built in Go.\n- 🔹 [Docker Restaurant](https://github.com/ratheeshkumar25/docker-restaurant): A complete restaurant backend system using Go, PostgreSQL, and Docker.`;
+            } else if (lowerMessage.includes("contact")) {
+              predefinedReply = `📬 **Contact**\n\nYou can reach me at: [ratheeshgopinadhkumar@gmail.com](mailto:ratheeshgopinadhkumar@gmail.com)`;
+            }
+
+            if (predefinedReply) {
+              await github.rest.issues.createComment({
+                issue_number: issueNumber,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: predefinedReply
+              });
+              return;
+            }
+
             const prompt = `You are a professional backend developer bot named RatheeshBot. Help answer this GitHub query politely and helpfully:\n\n${message}`;
             const openRouterKey = process.env.OPENROUTER_API_KEY;
 
