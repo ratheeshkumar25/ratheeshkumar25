@@ -29,8 +29,8 @@ I'm a passionate **Go-lang developer** from **India**, dedicated to building sca
 - 🌱 I'm always learning and exploring new technologies in the ever-evolving tech landscape
 - 👨‍💻 All of my projects are available at [GitHub](https://github.com/ratheesh-kumar)
 - 💬 Ask me about **PostgreSQL, Git, Data structures, Go, and backend development**
-- 📫 How to reach me: **ratheesh.k@hybridsolutions.com**
 - ⚡ Fun fact: **I love optimizing database queries and solving complex algorithms**
+- Hobbies: ***Developing Saas Products***
 
 <br clear="right"/>
 
