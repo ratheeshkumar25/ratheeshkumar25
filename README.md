@@ -1,93 +1,96 @@
+<!-- Banner -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ratheeshkumar25/ratheeshkumar25/main/go_banner.png"
+       alt="Ratheesh Kumar — Go Backend Developer" width="100%" />
+</p>
 
-# Hi there, I'm Ratheesh Kumar! 👋
+# 👋 Hi, I'm **Ratheesh Kumar**
 
-<div align="center">
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&duration=2000&pause=1000&color=00ADD8&center=true&vCenter=true&width=435&lines=Backend+Developer;Go-lang+Enthusiast;Scalable+Architect;Open+Source+Contributor" alt="Typing SVG" />
-  </a>
-</div>
-
-<div align="center">
-  <img src="https://komarev.com/ghpvc/?username=ratheeshkumar25&color=blue" alt="Profile Views" />
-  <a href="https://github.com/ratheeshkumar25?tab=followers">
-    <img src="https://img.shields.io/github/followers/ratheeshkumar25?style=social" alt="Followers" />
-  </a>
-  <a href="https://github.com/ratheeshkumar25">
-    <img src="https://img.shields.io/github/stars/ratheeshkumar25?style=social" alt="Stars" />
-  </a>
-</div>
+![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=2000&pause=900&color=00FF00&center=true&vCenter=true&width=500&lines=Go+Backend+Developer;Distributed+Systems+Engineer;SaaS+Builder;Open+Source+Contributor;AI+Automation+Enthusiast)
 
 ---
 
-## 🚀 About Me
+## 🧩 About Me (Hacker Terminal Style)
 
-I'm a passionate **Go-lang developer** from **India**, dedicated to building scalable and efficient backend systems. I love exploring new technologies and contributing to open-source projects.
+```bash
+> whoami
+  Backend Engineer • Go Developer • India 🇮🇳
 
-<img align="right" src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" width="280" alt="Coding GIF" />
+> focus
+  Distributed Systems | Microservices | Concurrency | Databases
 
-- 🔭 I'm currently working on **distributed systems and microservices**
-- 🌱 I'm always learning and exploring new technologies in the ever-evolving tech landscape
-- 👨‍💻 All of my projects are available at [GitHub](https://github.com/ratheeshkumar25)
-- 💬 Ask me about **PostgreSQL, Git, Data structures, Go, and backend development**
-- ⚡ Fun fact: **I love optimizing database queries and solving complex algorithms**
-- Hobbies: ***Developing Saas Products***
+> interests
+  Go Internals | High-Scale Backend | GitOps | Cloud | DSA
+
+> fun_fact
+  I optimize SQL queries for fun.
+```
+
+<img align="right" src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" width="230" />
+
+### 🟩 What I Do
+- Build distributed backend systems  
+- Study Go internals & concurrency  
+- Discuss Go, PostgreSQL, Git, System Design  
+- Build SaaS tools & developer automation  
+- Explore my work → **GitHub**
 
 <br clear="right"/>
 
+---
+
+## 🟩 Contact Me
+
+```bash
+> email      : iratheeshgopinadhkumar@gmail.com
+> linkedin   : linkedin.com/in/ratheesh-g-kumar/
+> leetcode   : leetcode.com/u/ratheeshgk/
+```
+
+**Links:**  
+[LinkedIn](https://www.linkedin.com/in/ratheesh-g-kumar/) •  
+[Email](mailto:iratheeshgopinadhkumar@gmail.com) •  
+[LeetCode](https://leetcode.com/u/ratheeshgk/)
+
+---
+
 ## 🛠️ Tech Stack
 
-### Languages
-![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+```bash
+> languages
+  Go | JavaScript | C | HTML | CSS
 
-### Databases
-![PostgreSQL](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
-![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+> databases
+  PostgreSQL | MySQL | MongoDB
 
-### DevOps & Cloud
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
-![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
-![GCP](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)
+> devops
+  Docker | Kubernetes | AWS | GCP | GitOps | CI/CD
 
-### Tools
-![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
-![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
-![VS Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+> tools
+  Git | VS Code | Postman
+```
 
 ---
 
 ## 📊 GitHub Stats
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=ratheeshkumar25&show_icons=true&theme=radical&count_private=true" width="400" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ratheeshkumar25&layout=compact&theme=radical" width="400" />
-</div>
+![Stats](https://github-readme-stats.vercel.app/api?username=ratheeshkumar25&show_icons=true&theme=chartreuse-dark&count_private=true)
 
-<br/>
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ratheeshkumar25&layout=compact&theme=chartreuse-dark)
 
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=ratheeshkumar25&theme=radical" />
-</div>
+![Streak](https://github-readme-streak-stats.herokuapp.com/?user=ratheeshkumar25&theme=chartreuse-dark)
 
 ---
 
-## 💬 Ask Me Anything
+## 🤖 Ask My AI Assistant
 
-I have connected this repository to an AI Assistant! You can ask any tech-related question, and my AI bot will answer it.
+```bash
+> ask "your question"
+  My AI assistant (Groq + GitHub Actions) will reply automatically.
+```
 
-<div align="center">
-  <a href="https://github.com/ratheeshkumar25/ratheeshkumar25/issues/new?assignees=&labels=question%2Cai-response&template=ask_ai.yml&title=Question%3A+">
-    <img src="https://img.shields.io/badge/Ask%20Me%20A%20Question-Click%20Here-00ADD8?style=for-the-badge&logo=github&logoColor=white" alt="Ask Me" />
-  </a>
-</div>
+[Ask My AI Bot](https://github.com/ratheeshkumar25/ratheeshkumar25/issues/new?labels=question,ai-response&template=ask_ai.yml&title=Question:+)
 
-<div align="center">
-  <img src="https://cdn.dribbble.com/users/722835/screenshots/4082720/bot_icon.gif" width="100" alt="Bot Icon" />
-  <p><i>"Powered by Groq & GitHub Actions"</i></p>
-</div>
+![AI Bot](https://cdn.dribbble.com/users/722835/screenshots/4082720/bot_icon.gif)
+
+---
