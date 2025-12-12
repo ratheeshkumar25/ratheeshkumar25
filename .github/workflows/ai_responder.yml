@@ -25,38 +25,36 @@ jobs:
       - name: Generate Answer and Comment
         uses: actions/github-script@v6
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         with:
           script: |
-            const { Configuration, OpenAIApi } = require("openai");
+            const { OpenAI } = require("openai");
 
-            // Initialize OpenAI
-            // Note: Adjust depending on the openai version installed. 
-            // For v4+:
-            const OpenAI = require("openai");
+            // Initialize OpenAI client pointing to Groq
             const openai = new OpenAI({
-              apiKey: process.env.OPENAI_API_KEY,
+              apiKey: process.env.GROQ_API_KEY,
+              baseURL: "https://api.groq.com/openai/v1"
             });
 
             const issue = context.payload.issue;
             const question = issue.title + "\n\n" + issue.body;
 
-            console.log("Analyzing question: " + question.substring(0, 50) + "...");
+            console.log("Analyzing question with Groq: " + question.substring(0, 50) + "...");
 
-            if (!process.env.OPENAI_API_KEY) {
-              console.log("No OPENAI_API_KEY found.");
+            if (!process.env.GROQ_API_KEY) {
+              console.log("No GROQ_API_KEY found.");
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issue.number,
-                body: "⚠️ **Bot Error**: `OPENAI_API_KEY` is missing in repository secrets. Please configure it to enable AI responses."
+                body: "⚠️ **Bot Error**: `GROQ_API_KEY` is missing in repository secrets. Please configure it to enable AI responses."
               });
               return;
             }
 
             try {
               const completion = await openai.chat.completions.create({
-                model: "gpt-3.5-turbo", // Or gpt-4 if the key supports it
+                model: "llama3-70b-8192", // Using Groq's high-performance model
                 messages: [
                   { 
                     role: "system", 
