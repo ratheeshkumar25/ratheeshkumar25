@@ -22,68 +22,8 @@ jobs:
       - name: Install Dependencies
         run: npm install openai @actions/core @actions/github
         
-      - name: Generate Answer and Comment
-        uses: actions/github-script@v6
+      - name: Run AI Bot
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-        with:
-          script: |
-            const { OpenAI } = require("openai");
-
-            // Initialize OpenAI client pointing to Groq
-            const openai = new OpenAI({
-              apiKey: process.env.GROQ_API_KEY,
-              baseURL: "https://api.groq.com/openai/v1"
-            });
-
-            const issue = context.payload.issue;
-            const question = issue.title + "\n\n" + issue.body;
-
-            console.log("Analyzing question with Groq: " + question.substring(0, 50) + "...");
-
-            if (!process.env.GROQ_API_KEY) {
-              console.log("No GROQ_API_KEY found.");
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: issue.number,
-                body: "⚠️ **Bot Error**: `GROQ_API_KEY` is missing in repository secrets. Please configure it to enable AI responses."
-              });
-              return;
-            }
-
-            try {
-              const completion = await openai.chat.completions.create({
-                model: "llama3-70b-8192", // Using Groq's high-performance model
-                messages: [
-                  { 
-                    role: "system", 
-                    content: `You are Ratheesh Kumar, a passionate Golang backend developer. 
-                    - You Answer questions about Golang, PostgreSQL, MySQL, MongoDB, DevOps (Docker/K8s), and System Design.
-                    - Be helpful, professional, but slightly casual and friendly.
-                    - If the question is unrelated to tech or your profile, politely redirect them.
-                    - Your email is ratheesh.k@hybridsolutions.com.` 
-                  },
-                  { role: "user", content: question }
-                ],
-                max_tokens: 300,
-              });
-
-              const answer = completion.choices[0].message.content;
-
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: issue.number,
-                body: `## 🤖 AI Response\n\n${answer}\n\n---\n*This is an automated response based on my tech stack. For complex inquiries, email me directly!*`
-              });
-
-            } catch (error) {
-              console.error(error);
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: issue.number,
-                body: "❌ **Error**: I couldn't process your request at the moment. Please try again later."
-              });
-            }
+        run: node .github/scripts/ai_bot.js
