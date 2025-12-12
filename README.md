@@ -8,12 +8,12 @@
 </div>
 
 <div align="center">
-  <img src="https://komarev.com/ghpvc/?username=iratheeshgk&color=blue" alt="Profile Views" />
-  <a href="https://github.com/iratheeshgk?tab=followers">
-    <img src="https://img.shields.io/github/followers/iratheeshgk?style=social" alt="Followers" />
+  <img src="https://komarev.com/ghpvc/?username=ratheeshkumar25&color=blue" alt="Profile Views" />
+  <a href="https://github.com/ratheeshkumar25?tab=followers">
+    <img src="https://img.shields.io/github/followers/ratheeshkumar25?style=social" alt="Followers" />
   </a>
-  <a href="https://github.com/iratheeshgk">
-    <img src="https://img.shields.io/github/stars/iratheeshgk?style=social" alt="Stars" />
+  <a href="https://github.com/ratheeshkumar25">
+    <img src="https://img.shields.io/github/stars/ratheeshkumar25?style=social" alt="Stars" />
   </a>
 </div>
 
@@ -27,7 +27,7 @@ I'm a passionate **Go-lang developer** from **India**, dedicated to building sca
 
 - 🔭 I'm currently working on **distributed systems and microservices**
 - 🌱 I'm always learning and exploring new technologies in the ever-evolving tech landscape
-- 👨‍💻 All of my projects are available at [GitHub](https://github.com/iratheeshgk)
+- 👨‍💻 All of my projects are available at [GitHub](https://github.com/ratheeshkumar25)
 - 💬 Ask me about **PostgreSQL, Git, Data structures, Go, and backend development**
 - ⚡ Fun fact: **I love optimizing database queries and solving complex algorithms**
 - Hobbies: ***Developing Saas Products***
@@ -65,14 +65,14 @@ I'm a passionate **Go-lang developer** from **India**, dedicated to building sca
 ## 📊 GitHub Stats
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=iratheeshgk&show_icons=true&theme=radical&count_private=true" width="400" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=iratheeshgk&layout=compact&theme=radical" width="400" />
+  <img src="https://github-readme-stats.vercel.app/api?username=ratheeshkumar25&show_icons=true&theme=radical&count_private=true" width="400" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ratheeshkumar25&layout=compact&theme=radical" width="400" />
 </div>
 
 <br/>
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=iratheeshgk&theme=radical" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=ratheeshkumar25&theme=radical" />
 </div>
 
 ---
@@ -82,7 +82,7 @@ I'm a passionate **Go-lang developer** from **India**, dedicated to building sca
 I have connected this repository to an AI Assistant! You can ask any tech-related question, and my AI bot will answer it.
 
 <div align="center">
-  <a href="https://github.com/iratheeshgk/iratheeshgk/issues/new?template=ask_ai.yml">
+  <a href="https://github.com/ratheeshkumar25/ratheeshkumar25/issues/new?assignees=&labels=question%2Cai-response&template=ask_ai.yml&title=Question%3A+">
     <img src="https://img.shields.io/badge/Ask%20Me%20A%20Question-Click%20Here-00ADD8?style=for-the-badge&logo=github&logoColor=white" alt="Ask Me" />
   </a>
 </div>
